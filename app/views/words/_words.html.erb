@@ -1,0 +1,25 @@
+<ul class="list-unstyled">
+  <table class="table table-striped table-bordered">
+    <% words.each do |word| %>
+      <tr>
+        <td>
+          <a href="<%= user_path(word.user) %>"> <img class="rounded" src="<%= gravatar_url(word.user, { size: 50 }) %>" alt=""> </a> 
+          <br>
+          <%= link_to word.user.name, user_path(word.user) %>
+        </td>
+        <td>
+          <%= word.content %>
+        </td>
+        <td>
+          <%= word.description %>
+        </td>
+        <td>
+          <% if current_user == word.user %>
+            <%= link_to "Delete", word, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= paginate words %>
+</ul>

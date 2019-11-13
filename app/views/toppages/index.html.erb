@@ -1,9 +1,27 @@
 <% if logged_in? %>
-  <p>ログイン完了ユーザ: <%= current_user.name %></p>
+  <div class="row">
+    <aside class="col-sm-4">
+      <%= form_with(model: @word, local: true) do |f| %>
+        <div class="form-group">
+          <%= f.label :title, 'WORD' %>
+          <%= f.text_area :content, class: 'form-control', rows: 5 %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, 'DESCRIPTION' %>
+          <%= f.text_area :description, class: 'form-control', rows: 5 %>
+        </div>
+        <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
+        <%= f.button "Reset", type: :reset, class: 'btn btn-danger btn-block' %>
+      <% end %>
+    </aside>
+    <div class="col-sm-8">
+      <%= render 'words/words', words: @words %>
+    </div>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
-      <h1>Welcome to the ENote</h1>
+      <h1>Welcome to the ENotes</h1>
       <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
     </div>
   </div>
