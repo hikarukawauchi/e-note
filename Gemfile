@@ -61,3 +61,9 @@ group :production do
   # for heroku
   gem 'pg', '>= 0.18', '< 2.0'
 end
+
+# for honoka
+gem 'sass-rails', '~> 5.0'
+gem 'honoka-rails', '>= 3.3.6.3'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
