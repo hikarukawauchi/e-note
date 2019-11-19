@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.container {
+  background-image: url("takedajo1.jpg");
+  height: 600px;
+  background-size:cover;
+}
