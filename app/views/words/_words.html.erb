@@ -16,6 +16,8 @@
         <td>
           <% if current_user == word.user %>
             <%= link_to "Delete", word, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% else %>
+            <%= render 'favorites/like_button', word: word %>
           <% end %>
         </td>
       </tr>

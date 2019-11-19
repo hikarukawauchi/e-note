@@ -10,9 +10,16 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :likes
     end
   end
   
-  resources :words, only: [:create, :destroy]
+  resources :words, only: [:create, :destroy] do
+    member do
+      get :likeusers
+    end
+  end
+  
   resources :relationships, only: [:create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 end
