@@ -1,11 +1,15 @@
 <% if current_user.like?(word) %>
   <%= form_with(model: current_user.favorites.find_by(word_id: word.id), local: true, method: :delete) do |f| %>
     <%= hidden_field_tag :word_id, word.id %>
-    <%= f.submit 'Unlike', class: 'btn btn-danger btn-sm' %>
+    <button type="button" class="btn btn-success">
+       <i class="fas fa-heart"></i></i><%= f.submit 'Liked', class: 'btn btn-sm' %>
+    </button>
   <% end %>
 <% else %>
   <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
     <%= hidden_field_tag :word_id, word.id %>
-    <%= f.submit 'Like', class: 'btn btn-primary btn-sm' %>
+    <button type="button" class="btn btn-light">
+      <i class="fas fa-thumbs-up"></i> <%= f.submit 'Like?', class: 'btn btn-sm' %>
+    </button>
   <% end %>
 <% end %>
