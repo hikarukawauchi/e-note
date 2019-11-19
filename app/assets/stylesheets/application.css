@@ -14,8 +14,9 @@
  *= require_self
  */
 
-.container {
-  background-image: url("takedajo1.jpg");
-  height: 600px;
-  background-size:cover;
+.jumbotron { 
+  background:url(takedajo1.jpg) 
+  center no-repeat; 
+  background-size: cover;
+  height: 500px; 
 }
